@@ -104,13 +104,12 @@ const createGameField = function(fieldsCount) {
 };
 
 const transformTableToSortedList = function(hashTable) {
-    const list = Object.entries(hashTable)
+    return Object.entries(hashTable)
         .flatMap(entry => [
             {key: entry[0], number: entry[1][0]},
             {key: entry[0], number: entry[1][1]},
         ])
-        .sort((a, b) => a.number > b.number)
-    return list;
+        .sort((a, b) => a.number - b.number)
 };
 
 const clearGameField = function(resetBtnWrap, resultBlock) {
